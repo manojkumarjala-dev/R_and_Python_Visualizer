@@ -139,6 +139,34 @@ docker build -t r-visualization .
 ### Python Example
 ![Screenshot 2025-04-11 at 5 16 34 PM](https://github.com/user-attachments/assets/a4e316b1-1028-4f94-8629-83f4c5d414f1)
 
+
+## Issue Faced: Extracting Output File Extension in Backend
+
+While building the backend, I initially tried to extract the output file extension (like `png` or `html`) by parsing the user-submitted code using regex. The idea was to detect functions like `plt.savefig("filename.png")` or `saveWidget(fig, "filename.html")` and extract the file type from there.
+
+This approach worked fine for simple Python code, but quickly became unreliable when dealing with R code — especially with cases like `ggsave()` or `htmlwidgets::saveWidget()` where the syntax varies and whitespace, parameters, or full paths made it hard to match consistently.
+
+To avoid overcomplicating the regex and prevent unexpected behavior, I decided to stop parsing file type from the code altogether.
+
+### How I Resolved It
+
+Instead of expecting the user to provide a file name, I standardized the approach by requiring them to write `__OUTPUT__` in their code wherever the output should be saved and the option to choose png or html based on the type of image(static or dynamic/3d).
+
+Example:
+
+```python
+plt.savefig("__OUTPUT__")
+```
+
+or
+
+```r
+saveWidget(fig, "__OUTPUT__")
+```
+
+Then, in the backend, I generate a unique filename (like a UUID with the correct extension), replace `__OUTPUT__` with the full path to the shared output folder, and execute the code. This approach made the system more predictable, cleaner, and language-agnostic.
+
+
 ## License
 
 This project is for academic/demo use. No license specified yet.
