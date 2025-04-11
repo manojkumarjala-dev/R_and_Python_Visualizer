@@ -122,6 +122,22 @@ docker build -t r-visualization .
 - All outputs are saved in `static/outputs/` and served via Flask as static files.
 
 ---
+## Screenshots
+
+### Homepage Overview
+![Screenshot 2025-04-11 at 5 14 50 PM](https://github.com/user-attachments/assets/121d8c7f-89ea-464a-826e-058448f55543)
+
+### Visualizer page
+![Screenshot 2025-04-11 at 5 15 00 PM](https://github.com/user-attachments/assets/50953945-f962-47fb-8f7e-5c88db7338b2)
+
+### Dropdown Options for Language and Format
+![Screenshot 2025-04-11 at 5 15 23 PM](https://github.com/user-attachments/assets/aed8d76d-181f-4297-95b4-0cfa94b33fb0)
+
+### R Example
+![Screenshot 2025-04-11 at 5 15 55 PM](https://github.com/user-attachments/assets/1578cac1-ba7c-4e4b-b9c6-10f96c001452)
+
+### Python Example
+![Screenshot 2025-04-11 at 5 16 34 PM](https://github.com/user-attachments/assets/a4e316b1-1028-4f94-8629-83f4c5d414f1)
 
 ## License
 
